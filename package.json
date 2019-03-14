@@ -7,7 +7,8 @@
   "author": "L-Chris <563303226@qq.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel ./public/index.html"
+    "dev": "parcel src/index.html --open",
+    "build": "rimraf public && parcel build src/index.html -d public --no-source-maps"
   },
   "dependencies": {
     "koa": "^2.7.0",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@vue/component-compiler-utils": "^2.6.0",
     "parcel-bundler": "^1.12.2",
+    "rimraf": "^2.6.3",
     "sass": "^1.17.2",
     "vue-hot-reload-api": "^2.3.3",
     "vue-template-compiler": "^2.6.9"
