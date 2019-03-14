@@ -1,0 +1,16 @@
+{
+  "name": "whistle.switch-hosts",
+  "version": "0.1.0",
+  "description": "a whistle plugin to switch hosts",
+  "main": "./lib/index.js",
+  "repository": "https://github.com/L-Chris/whistle.switch-hosts",
+  "author": "L-Chris <563303226@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-onerror": "^4.1.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
+  }
+}
