@@ -1,16 +1,28 @@
 {
   "name": "whistle.switch-hosts",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "a whistle plugin to switch hosts",
   "main": "./lib/index.js",
   "repository": "https://github.com/L-Chris/whistle.switch-hosts",
   "author": "L-Chris <563303226@qq.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "parcel ./public/index.html"
+  },
   "dependencies": {
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-onerror": "^4.1.0",
     "koa-router": "^7.4.0",
-    "koa-static": "^5.0.0"
+    "koa-static": "^5.0.0",
+    "vue": "^2.6.9",
+    "vuetify": "^1.5.6"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^2.6.0",
+    "parcel-bundler": "^1.12.2",
+    "sass": "^1.17.2",
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-template-compiler": "^2.6.9"
   }
 }
