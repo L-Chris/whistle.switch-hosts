@@ -9,6 +9,7 @@
           <VTextField
             v-model="inputValue"
             label="请输入环境名称"
+            box
           ></VTextField>
           <VList>
             <template v-for="(_, i) in filteredHosts">
@@ -30,15 +31,12 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { findHost } from './services'
 export default {
   data() {
     return {
       inputValue: '',
-      hosts: [
-        { id: 0, name: 'student-apphd-exam' },
-        { id: 1, name: 'parent-apphd-exam' }
-      ],
+      hosts: [],
       messageVisible: false,
       messageContent: '',
       selectedHost: {}
@@ -60,14 +58,18 @@ export default {
       this.inputValue = ''
     },
     async asyncData() {
-      const { data } = await axios.get('/cgi-bin/info')
+      const data = await findHost()
       this.hosts = data
       return data
     }
+  },
+  created() {
+    this.asyncData()
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.app{}
+.app{
+}
 </style>

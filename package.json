@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "parcel src/index.html --open",
+    "watch": "node build/watch.js",
     "build": "rimraf public && parcel build src/index.html -d public --no-source-maps"
   },
   "dependencies": {
@@ -31,3 +32,4 @@
     "vue-template-compiler": "^2.6.9"
   }
 }
+    
