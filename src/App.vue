@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
@@ -57,12 +58,16 @@ export default {
       this.messageContent = `已切换成：${item.name}`
       this.selectedHost = item
       this.inputValue = ''
+    },
+    async asyncData() {
+      const { data } = await axios.get('/cgi-bin/info')
+      this.hosts = data
+      return data
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.app{
-}
+.app{}
 </style>
