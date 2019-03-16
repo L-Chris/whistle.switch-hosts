@@ -9,7 +9,7 @@
           <VTextField
             v-model="inputValue"
             label="请输入环境名称"
-            box
+            prepend-icon="search"
           ></VTextField>
           <VList>
             <template v-for="(_, i) in filteredHosts">
@@ -31,15 +31,15 @@
 </template>
 
 <script>
-import { findHost } from './services'
+import { findHost, getCurrentHost, changeHost } from './services'
 export default {
   data() {
     return {
-      inputValue: '',
       hosts: [],
+      selectedHost: {},
+      inputValue: '',
       messageVisible: false,
       messageContent: '',
-      selectedHost: {}
     }
   },
   computed: {
@@ -51,16 +51,17 @@ export default {
     }
   },
   methods: {
-    handleClick(item) {
+    async handleClick(item) {
+      const host = await changeHost(item)
       this.messageVisible = true
-      this.messageContent = `已切换成：${item.name}`
-      this.selectedHost = item
+      this.messageContent = `已切换成：${host.name}`
+      this.selectedHost = host
       this.inputValue = ''
     },
     async asyncData() {
-      const data = await findHost()
-      this.hosts = data
-      return data
+      const [hosts, currentHost] = await Promise.all([findHost(), getCurrentHost()])
+      this.hosts = hosts
+      this.selectedHost = currentHost
     }
   },
   created() {
@@ -68,6 +69,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.app {
+  .v-text-field {
+    padding-left: 10px;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 .app{

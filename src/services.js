@@ -10,9 +10,19 @@ axios.interceptors.response.use(({ data: { data, status } }) => {
 }, err => Promise.reject(err))
 
 function findHost() {
-  return axios.get('/info')
+  return axios.get('/list')
+}
+
+function getCurrentHost() {
+  return axios.get('/current')
+}
+
+function changeHost({ id }) {
+  return axios.post('/change', { id })
 }
 
 export {
-  findHost
+  findHost,
+  getCurrentHost,
+  changeHost
 }
