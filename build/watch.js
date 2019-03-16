@@ -21,4 +21,4 @@ const watchCallback = function () {
 }
 
 fs.watch('./src', { recursive: true }, debounce(watchCallback, 1500))
-fs.watch('./lib', { recursive: true }, debounce(triggerUpdate, 1500))
+fs.watch('./lib', { recursive: true }, debounce(triggerUpdate, 1000))
