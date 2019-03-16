@@ -1,9 +1,9 @@
 {
-  "name": "whistle.switch-hosts",
+  "name": "whistle.nohost",
   "version": "0.0.1",
   "description": "a whistle plugin to switch hosts",
   "main": "./lib/index.js",
-  "repository": "https://github.com/L-Chris/whistle.switch-hosts",
+  "repository": "https://github.com/L-Chris/whistle.nohost",
   "author": "L-Chris <563303226@qq.com>",
   "license": "MIT",
   "scripts": {
@@ -18,6 +18,7 @@
     "koa-onerror": "^4.1.0",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
+    "lowdb": "^1.0.0",
     "vue": "^2.6.9",
     "vuetify": "^1.5.6"
   },
